@@ -1,0 +1,27 @@
+<div class="container">
+    <form [formGroup]="rform" (ngSubmit)="onsubmit()" style="margin: auto;">
+        <label for="name" class="form-label">Name:</label>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="name" [ngClass]="{'is-invalid': f['name'].invalid && (f['name'].dirty || f['name'].touched)} ">
+            <div *ngIf="f['name'].touched && f['name'].invalid" class="invalid-feedback fw-bold">
+                <div *ngIf="f['name'].errors && f['name'].errors['required']" >Name is required</div>
+                <div *ngIf="f['name'].errors && f['name'].errors['minlength']" >Name Should be alteast 4 character!</div>
+            </div>
+        </div>
+
+        <label for="password" class="form-label">Password:</label>
+        <input type="text" class="form-control" formControlName="password" [ngClass]="{'is-invalid': f['password'].invalid && (f['password'].dirty || f['password'].touched)}"  >
+        <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)" class="invalid-feedback fw-bold" >
+            <div *ngIf="f['password'].errors && f['password'].errors['required'] " >Password cannot be empty!</div>
+        </div>
+
+        <label for="confirm password" class="form-label">Confirm Password:</label>
+        <input type="text" class="form-control" formControlName="confirmPass" [ngClass]="{'is-invalid': f['confirmPass'].invalid && (f['confirmPass'].dirty || f['confirmPass'].touched) }">
+        <div *ngIf="f['confirmPass'].invalid && (f['confirmPass'].dirty || f['confirmPass'].touched)" class="invalid-feedback fw-bold" >
+            <div *ngIf="f['confirmPass'].errors && f['confirmPass'].errors['required'] " >Password cannot be empty!</div>
+            <div *ngIf="f['confirmPass'].errors && f['confirmPass'].errors['confirmedValidator'] " >Password did not match!</div>
+        </div>
+
+        <button class="btn btn-primary" type="submit"  >Submit</button>
+    </form>
+</div>

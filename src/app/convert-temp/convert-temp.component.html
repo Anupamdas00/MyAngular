@@ -1,0 +1,22 @@
+<div class="container">       
+    <div class="card w-50">
+        <div class="card-header text-center fw-bold">Convert Temparature</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text fw-bold">Fahrenheit:</span>
+                        <input type="text" class="form-control" [ngModel]="fah" (ngModelChange)="valueChangedF($event)" placeholder="Enter Fahrenheit">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text fw-bold">Celsious:</span>
+                        <input type="text" class="form-control" [ngModel]="cel" (ngModelChange)="valueChangedC($event)" placeholder="Enter Celsius">
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>   
+</div>
+

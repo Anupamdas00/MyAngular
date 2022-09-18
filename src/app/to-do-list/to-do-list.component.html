@@ -1,0 +1,16 @@
+
+
+<div class="container">
+    <h3 class="display-6 text-center">To Do List</h3>
+    <div class="d-flex justify-content-center">
+        <input type="text" #textVal class="form-control  w-25">
+        <button class="btn btn-primary m-2" (click)="addTask(textVal.value)" >Add Task</button>
+        <br><br>
+    </div>
+    <div class="position-absolute top-25 start-50">
+        <ul *ngFor="let item of list" >
+            <li style="list-style: none;"> {{item.name}} <button type="button" (click)="removeTask(item.id)" class="btn-close" aria-label="Close"></button> </li>
+        </ul>
+    </div>
+    
+</div>

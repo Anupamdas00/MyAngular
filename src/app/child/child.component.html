@@ -1,0 +1,14 @@
+
+
+
+<!-- <p><strong>Data form parent is:</strong> {{item}} </p> -->
+<div class="container">
+    <h1>child works!</h1>
+    <input type="text" #box>
+    <button (click)="updateDataEvent.emit(box.value)" >send data</button>
+    <div class="userdata">
+        <ul>
+            <li *ngFor="let user of user" >{{user.name}}---{{user.age}}---{{user.post}} </li>
+        </ul>
+    </div>
+</div>

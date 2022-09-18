@@ -1,0 +1,146 @@
+<h1 style="text-align:center" >app component</h1>
+
+<!-- events----------------------------- -->
+<!-- events == (click),(input),(keyup),(keydown),(mouseover),(mouseleave)
+<input type="text" #text1 placeholder="give value">
+<button (click)="getData(text1.value)">Enter</button>
+<br>
+<input type="text" #text2 (input)="getData(text2.value)"> -->
+
+<!-- print input value on page -->
+<!-- <input type="text" #text1 placeholder="give value">
+<button (click)="getData(text1.value)">Enter</button>
+<br>
+<input type="text" #text2 (input)="getData(text2.value)"> 
+<p>typed value is: {{inputVal}} </p> -->
+
+<!-- make a counter button and count------------ -->
+<!-- <button (click)="counter('minus')">--</button>
+<h4>{{count}} </h4>
+<button (click)="counter('add')">++</button> -->
+
+<!-- property binding------------------ -->
+<!-- <input type="text" value={{name}} disabled={{disable}}>
+<input type="text" [value]=name [disabled]=disable> --  >
+
+<!-- ngif else------------ -->
+<!-- we can apply only two condintion for more we use else if statement -->
+<!-- <button (click)="change()" >{{buttonName}}</button>
+<h1 *ngIf="show ; then ifblock else elseblock"></h1>
+    <ng-template #ifblock>
+        <p>while show is true</p>
+    </ng-template>
+
+    <ng-template #elseblock>
+        <p>while show is false</p>
+    </ng-template> -->
+
+<!-- else if condition------------------ -->
+<!-- <ng-template [ngIf]="color === 'green'" >
+    <h1 style="color: green;" >green color</h1>
+</ng-template>
+<ng-template [ngIf]="color === 'blue'" >
+    <h1 style="color: blue;" >blue color</h1>
+</ng-template> -->
+
+<!-- switch case------------------- -->
+<!-- when we have 2 and 3 conditions then we use else if condition, when we have more condition then we have to use swith case -->
+<!-- <div [ngSwitch]="color" >
+    <h1 *ngSwitchCase="'red'" style="color: red;" >Red color</h1>
+    <h1 *ngSwitchCase="'green'" style="color: green;" >green color</h1>
+    <h1 *ngSwitchCase="'pink'" style="color: pink;" >pink color</h1>
+    <h1 *ngSwitchCase="'orange'" style="color: orange;" >orange color</h1>
+    <h1 *ngSwitchDefault >unknown color</h1>
+</div> -->
+
+<!-- for loop------------------------ -->
+<!-- <table >
+    <tr>
+        <th>Name</th>
+        <th>email</th>
+        <th>phone</th>
+    </tr>
+    <tr *ngFor = "let item of userdetails">
+        <td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.phone}}</td>
+    </tr>
+</table> -->
+
+<!-- style binding-------------- -->
+<!-- <h1 [style.color]="color" [style.backgroundColor]="bgcolor" > {{title}} </h1>
+<button (click)="updateColor()" >Update color</button> -->
+
+  <!-- // toggle a element---------------------- -->
+  <!-- <button (click)="toggler()" >toggle</button>
+<h1 *ngIf="display" >Element for toggle</h1> -->
+
+<!-- send data parent to child --------------->
+<app-child [item]="data" ></app-child>
+<button (click)="sendData()" >send data</button>
+
+<!-- send data child to parent component---------------- -->
+<!-- <app-child (updateDataEvent)="update($event)" ></app-child>
+<p><strong>Data from child component is:</strong> {{data}} </p> -->
+
+  <!-- // two way binding---------- -->
+<!-- updating and displaying a property at the same time -->
+<!-- import form module and import it to app.module -->
+<input type="text" [(ngModel)]="data">
+<p><Strong>Input data is:</Strong>{{data}} </p>
+
+
+<!-- pipes----------- -->
+<!-- <h1>{{str | titlecase }}</h1>
+<h1>{{30 | usdtoinr: 80}}</h1> -->
+
+<!-- template driven form------------------ -->
+<!-- <div class="container">
+    <form #form="ngForm" (ngSubmit)=getInfo(form.value) >
+        <label for="name">Name</label>
+        <input type="text" placeholder="name" pattern="[a-zA-Z]" required #name="ngModel" name="name" ngModel >
+        <span *ngIf="name.invalid && name.touched" style="color: red;">Please enter valid input</span>
+        <br>
+        <label for="password">password</label>
+        <input type="password" #pass="ngModel" required minlength="4" placeholder="password" name="password" ngModel >
+        <span *ngIf="pass.invalid && pass.touched" style="color: red;" >Enter a password</span>
+        <br><br>  
+        <button type="submit" [disabled]="form.invalid" >submit</button>
+    </form>
+</div> -->
+
+<!-- dynamic routing------------ -->
+<ul>
+    <li><a routerLink="child">Child</a></li><br><br>
+    <li><a routerLink="user/11">user 1</a></li>
+    <li><a routerLink="user/15">user 2</a></li>
+    <li><a routerLink="user/30">user 3</a></li>
+</ul>
+
+<router-outlet></router-outlet>
+
+<!-- services-------------------- -->
+<!-- <ul>
+    <li *ngFor="let user of users" >{{user.name}}---{{user.age}}---{{user.post}} </li>
+</ul>
+<table>
+   <thead>
+       <tr>
+           <td>Name</td>
+           <td>Age</td>
+           <td>Post</td>
+       </tr>
+   </thead>
+   <tbody>
+       <tr *ngFor="let user of users" >
+           <td>{{user.name}} </td>
+           <td>{{user.age}} </td>
+           <td>{{user.post}} </td>
+       </tr>
+   </tbody>
+</table> -->
+
+<!-- ---------------------------------lazy loading---------------------- -->
+<!-- first import ViewcontainerRef and ComponentFactoryResolver to app.component, then inject in constructor -->
+<!-- <button (click)="loadFood()" >Load Food comp</button>
+<button (click)="loadCust()" >Load Cust comp</button> -->
